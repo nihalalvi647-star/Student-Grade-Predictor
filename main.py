@@ -36,4 +36,20 @@ predicted_grade = model.predict(new_student)
 
 print("\n--- 🎯 मशीन लर्निंग की भविष्यवाणी 🎯 ---")
 print(f"अगर छात्र 6 घंटे पढ़ेगा, तो उसके संभावित मार्क्स होंगे: {predicted_grade[0]:.2f}%")
+import matplotlib.pyplot as plt
+# 9. डेटा विज़ुअलाइज़ेशन (ग्राफ़ बनाना)
+print("\n--- 📊 आपका पहला डेटा ग्राफ़ तैयार हो रहा है... ---")
 
+# पढ़ाई के घंटों और फाइनल मार्क्स के बीच का संबंध दिखाना
+plt.scatter(data['Hours_Studied'], data['Final_Sgrade'], color='blue', marker='o')
+
+# ग्राफ़ पर नाम लिखना (Labels)
+plt.title('Hours Studied vs Final Grade')
+plt.xlabel('Hours of Study')
+plt.ylabel('Final Grade (%)')
+plt.grid(True) # पीछे ग्रिड लाइन्स दिखाना
+
+# ग्राफ़ को स्क्रीन पर दिखाना
+plt.show()
+# ग्राफ़ को लैपटॉप में इमेज के रूप में सेव करना
+plt.savefig('student_performance_graph.png')
