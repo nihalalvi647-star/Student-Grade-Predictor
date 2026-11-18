@@ -1,3 +1,4 @@
+import seaborn as sns
 import pandas as pd 
 # 1. CSV file ko load karna 
 data = pd.read_csv('Student_data.csv')
@@ -53,3 +54,22 @@ plt.grid(True) # पीछे ग्रिड लाइन्स दिखान
 plt.show()
 # ग्राफ़ को लैपटॉप में इमेज के रूप में सेव करना
 plt.savefig('student_performance_graph.png')
+# 10. Seaborn के साथ एडवांस विज़ुअलाइज़ेशन
+print("\n--- 📊 Seaborn एडवांस ग्राफ तैयार हो रहा है... ---")
+
+# एक नया फिगर (विंडो) बनाना
+plt.figure(figsize=(8, 5))
+
+# Seaborn का उपयोग करके प्रेडिक्शन लाइन के साथ ग्राफ बनाना
+sns.regplot(x='Hours_Studied', y='Final_Sgrade', data=data, color='green', marker='s')
+
+# ग्राफ की सजावट
+plt.title('Advanced View: Hours Studied vs Final Grade (Seaborn)')
+plt.xlabel('Hours of Study')
+plt.ylabel('Final Grade (%)')
+
+# इस नए ग्राफ को भी इमेज के रूप में सेव करना
+plt.savefig('student_seaborn_graph.png')
+
+# ग्राफ को स्क्रीन पर दिखाना
+plt.show()
